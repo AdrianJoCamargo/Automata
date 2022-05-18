@@ -1,8 +1,14 @@
+import sys
+
+from PyQt5 import uic
+from PyQt5.QtWidgets import QMainWindow,QApplication, QPushButton
+
 class Automata():
     def __init__(self):
         self.estado=0
         self.numero=0
         self.cont=0
+        mensaje=""
 
     def q0(self,letras):
         self.estado = 0
@@ -125,8 +131,12 @@ class Automata():
 
     def compilador(self):
         if(self.estado == 3):
+            self.mensaje="Error, no se llega a un estado valido"
+            #automata.statusBar().showMessage("Error, no se llega a un estado valido")
             print("Error, no se llega a un estado valido")
         else:
+            self.mensaje="Valor correcto"
+            #automata.statusBar().showMessage("Valor correcto")
             print("Valor correcto")
 
     def recorido(self, palabra):
@@ -134,6 +144,9 @@ class Automata():
         self.numero=len(lis)
         self.cont=0
         self.q0(lis)
+        return self.mensaje
+
+
 
 
 auto=Automata()

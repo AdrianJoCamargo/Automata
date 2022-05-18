@@ -4,7 +4,7 @@ import sys
 
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow,QApplication, QPushButton
-
+from main import Automata
 
 class mainGUI(QMainWindow):
     def __init__(self):
@@ -21,7 +21,18 @@ class mainGUI(QMainWindow):
     def autenticar(self):
         sender = self.sender()
         texto=self.textoAutenticar.text()
-        self.statusBar().showMessage(sender.text() + texto)
+        automata=Automata()
+        
+        self.statusBar().showMessage(automata.recorido(texto))
+        
+      
+            
+            
+
+        
+        #sender = self.sender()
+        #texto=self.textoAutenticar.text()
+        #self.statusBar().showMessage(sender.text() + texto)
 
    
 
